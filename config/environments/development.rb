@@ -5,6 +5,8 @@ Rails.application.configure do
   # config.hotwire_livereload.listen_options[:force_polling] = true
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
+  config.cache_classes = false
+  config.file_watcher = ActiveSupport::FileUpdateChecker
 
   # Do not eager load code on boot.
   config.eager_load = false
