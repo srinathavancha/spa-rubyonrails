@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   # get '/contact-us', to: 'contact_us#new', as: :contact_us
   # post '/contact-us', to: 'contact_us#create', as: :contact_us
-
-
-
+  
   # Catch-all route for unmatched paths — placed last
   match '*unmatched', to: 'application#route_not_found', via: :all
 end
