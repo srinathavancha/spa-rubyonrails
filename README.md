@@ -22,3 +22,28 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+common header file inject 
+	(logo on left, action always redirect to dashboard page)
+	(links to navigate to products, contact-us page) 
+	(username/Guest on right, logout) 
+common footer file inject
+
+manage modularize in different folders
+users (with username, password, email)
+login (no session redirect to login page always except for contact-us page, otherwise to dashboard page)
+products(code, name, quantity)
+dashboard is a default landing page (always says "Hello [username] / Guest")
+contact-us(email, name, ref to product code) page with form submit
+run server on 3021
+
+rails db:drop db:create db:migrate db:seed
+rails generate migration CreateContactUs
+rails db:migrate
+
+logout as delete method
+bin/importmap pin @rails/ujs
+in application js
+import Rails from "@rails/ujs"
+Rails.start()
