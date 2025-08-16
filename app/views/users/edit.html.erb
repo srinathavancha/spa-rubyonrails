@@ -1,0 +1,18 @@
+<h2>Edit User</h2>
+
+<%= form_with(model: @user, local: true) do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :username %>
+
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password, autocomplete: "off" %>
+  <small>Leave blank to keep current password</small>
+
+  <%= form.label :superuser %>
+  <%= form.check_box :superuser %>
+
+  <%= form.submit "Update User" %>
+<% end %>

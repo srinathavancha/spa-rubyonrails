@@ -1,0 +1,22 @@
+<header>
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div>
+      <img src="/assets/logo.png" alt="Logo" style="height:40px;">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/products">Products</a>
+      <a href="/contact-us">Contact Us</a>
+      <% if current_user&.superuser? %>
+        <a href="<%= users_path %>">Users</a>
+      <% end %>
+    </div>
+    <div>
+      <% if current_user %>
+        Hello <%= current_user.username %>
+        <%= link_to "Logout", logout_path, method: :delete %>
+      <% else %>
+        Hello Guest
+        <%= link_to "Login", new_session_path %>
+      <% end %>
+    </div>
+  </div>
+</header>
