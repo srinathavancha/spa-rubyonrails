@@ -11,6 +11,6 @@ export default defineConfig({
       'config/routes.rb',
       'app/controllers/**/*.rb',
       'app/models/**/*.rb'
-    ], { delay: 200 })
+    ], { delay: 100 })
   ],
 })
