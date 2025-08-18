@@ -47,3 +47,10 @@ bin/importmap pin @rails/ujs
 in application js
 import Rails from "@rails/ujs"
 Rails.start()
+npx kill-port <PORT>
+
+
+Run:
+bin/vite dev --debug
+rails server -p 3021
+http://127.0.0.1:3021/
