@@ -1,0 +1,36 @@
+// 1. Import Bootstrap's functions first (required dependency)
+// @import "bootstrap/scss/functions";
+@import "bootstrap/scss/bootstrap";
+// Import Bootstrap Icons CSS
+// @import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// 2. Import your custom variable overrides BEFORE Bootstrap variables
+@import "styles/variables";
+
+// 3. Import Bootstrap variables and mixins after your overrides
+// @import "bootstrap/scss/variables";
+// @import "bootstrap/scss/mixins";
+// @import "bootstrap/scss/maps"; 
+
+// 4. Import Bootstrap root styles and reboot
+// @import "bootstrap/scss/root";
+// @import "bootstrap/scss/reboot";
+
+// 5. Import your custom mixins (optional)
+@import "styles/mixins";
+
+// 6. Import your component styles
+@import "styles/components/header";
+@import "styles/components/sidebar";
+@import "styles/components/content";
+@import "styles/components/footer";
+
+// 7. Global base styles
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: $light-bg; // From your variables.scss
+}

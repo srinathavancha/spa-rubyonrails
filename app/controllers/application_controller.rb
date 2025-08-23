@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :set_cache_buster
   helper_method :current_user
@@ -10,19 +11,23 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     return if current_user
-    return if params[:controller] == 'sessions' && ['new', 'create'].include?(params[:action])
+    return if params[:controller] == 'sessions' && ['new', 'create', 'status'].include?(params[:action])
     return if params[:controller] == 'users' && ['new', 'create'].include?(params[:action])
     # return if params[:controller] == 'contact_us' # Allow all actions here
     
     redirect_to login_path, alert: "Please login to continue."
   end
 
+  # def route_not_found
+  #   if session[:user_id].present?
+  #     render file: Rails.public_path.join('404.html'), status: :not_found, layout: false
+  #   else
+  #     redirect_to login_path
+  #   end
+  # end
+
   def route_not_found
-    if session[:user_id].present?
-      render file: Rails.public_path.join('404.html'), status: :not_found, layout: false
-    else
-      redirect_to login_path
-    end
+    render plain: "404 Not Found", status: 404
   end
 
 

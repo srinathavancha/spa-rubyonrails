@@ -1,0 +1,111 @@
+@import "../variables";
+@import "../mixins";
+
+.sidebar {
+  position: fixed;
+  top: $navbar-height;
+  left: 0;
+  height: calc(100vh - #{$navbar-height});
+  width: $sidebar-width;
+  background: $light-bg;
+  border-right: 1px solid #dee2e6;
+  padding-top: 0.5rem;
+  @include transition(width 0.3s);
+  overflow-x: hidden;
+  z-index: $z-sidebar;
+  @include flex-center(column, flex-start, null);
+
+  .nav-link {
+    white-space: nowrap;
+    overflow: hidden;
+
+    i {
+      font-size: 1.25rem;
+    }
+  }
+
+  .sidebar-label {
+    margin-left: 0.5rem;
+    @include transition(opacity 0.3s, visibility 0.3s);
+    opacity: 1;
+    visibility: visible;
+    display: inline-block;
+  }
+
+  .toggle-container {
+    @include flex-center(row, flex-end, center);
+    padding: 0 0.5rem 0.5rem 0;
+    flex-shrink: 0;
+  }
+}
+
+body.sidebar-collapsed {
+  .sidebar {
+    width: $sidebar-collapsed-width;
+
+    &:hover:not(:has(.toggle-container:hover)) {
+      @include subtle-shadow;
+      width: $sidebar-width !important;
+      z-index: 9999 !important;
+    }
+
+    &:hover:not(:has(.toggle-container:hover)) .sidebar-label {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  }
+
+  .sidebar .sidebar-label {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    width: 0;
+  }
+
+  .content-wrapper {
+    margin-left: $sidebar-collapsed-width;
+  }
+}
+
+#mobileSidebarToggle {
+  position: fixed;
+  top: $navbar-height + 4px;
+  left: 10px;
+  z-index: $z-sidebar + 19;
+  display: none;
+}
+
+@include respond-to(lg) {
+  .sidebar {
+    width: 220px;
+    position: fixed;
+    top: $navbar-height;
+    left: 0;
+    height: calc(100vh - #{$navbar-height});
+    z-index: 1020;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+
+  body.sidebar-collapsed .sidebar {
+    transform: translateX(-100%);
+  }
+
+  footer {
+    position: static;
+  }
+
+  .navbar-collapse.collapse.show {
+    display: block !important;
+    position: absolute;
+    top: $navbar-height;
+    left: 0;
+    width: 100%;
+    background-color: $primary-color;
+    z-index: 1200;
+  }
+
+  #mobileSidebarToggle {
+    display: inline-flex;
+  }
+}

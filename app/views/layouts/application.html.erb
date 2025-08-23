@@ -21,7 +21,7 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <!--<%= javascript_importmap_tags %>-->
     <%= vite_client_tag %>
-    <%= vite_stylesheet_tag 'application' %>
+    <%= vite_stylesheet_tag 'application.scss' %>
     <%= vite_javascript_tag 'application.jsx' %>
     <!--
       If using a TypeScript entrypoint file:
@@ -36,8 +36,6 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <%= yield %>
-    <%= render "layouts/footer" %>
+    <div id="root"></div>
   </body>
 </html>

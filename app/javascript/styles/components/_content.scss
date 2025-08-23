@@ -1,0 +1,22 @@
+@import "../variables";
+@import "../mixins";
+
+.content-wrapper {
+  margin-left: $sidebar-width;
+  padding: 2rem;
+  margin-top: $navbar-height;
+  margin-bottom: $footer-height;
+  height: calc(100vh - (#{$navbar-height} + #{$footer-height}));
+  overflow-y: auto;
+  background: $text-light;
+  @include transition(margin-left 0.3s);
+}
+
+@include respond-to(lg) {
+
+  body.sidebar-collapsed .content-wrapper {
+    margin-left: 0 !important;
+    height: auto !important;
+    // padding: 1rem;
+  }
+}

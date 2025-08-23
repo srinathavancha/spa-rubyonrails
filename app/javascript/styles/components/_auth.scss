@@ -1,0 +1,41 @@
+// frontend/styles/components/_auth.scss
+
+.login-container {
+  background-color: #f8f9fa; // light gray background
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .alert {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    font-weight: 500;
+  }
+
+  input {
+    border-radius: 4px;
+  }
+
+  button {
+    border-radius: 6px;
+    font-weight: 600;
+  }
+}

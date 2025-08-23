@@ -11,9 +11,14 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  # get '/contact-us', to: 'contact_us#new', as: :contact_us
-  # post '/contact-us', to: 'contact_us#create', as: :contact_us
-  
+
+  get '/api/session_status', to: 'sessions#status'
+
+  namespace :api do
+    namespace :v1 do
+      get 'grants', to: 'grants#index'
+    end
+  end
   # Catch-all route for unmatched paths — placed last
   match '*unmatched', to: 'application#route_not_found', via: :all
 end

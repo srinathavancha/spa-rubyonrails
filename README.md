@@ -50,7 +50,40 @@ Rails.start()
 npx kill-port <PORT>
 
 
+rails generate migration AddGrantsToUsers grants:text
+rails db:migrate
+rails db:drop db:create db:migrate db:seed
+
 Run:
 bin/vite dev --debug
 rails server -p 3021
 http://127.0.0.1:3021/
+
+
+curl --location 'http://localhost:3021/login' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: _test_rubyrails_session=T8nbTC57E%2B6lqUmG9XGBlcjxFffulxR6RMH9qyHKvNm8r1AZ9wbVDB8AZqeDH86Ym1dNskvuVacLfw0j3rUkgteG921SgJwK7jKGQ0mdIikBiKwVVrHIBsJiCyz7IT5CJMZIpBFfmcHEb87Lrol68cGgn0Dmxtb5Z6g01%2B1gKGNAdH%2BsQRZVPjs%2FWnXTBAZKUt88z8g5pN98PueK%2FfNZSV8ZqZs504GNh9f2Gc2I0xB0iURpcjlIxiHqV1iQa6XboYoUD3nBYlYxBTt%2BaUapo3DTuG0hJ0bzJ0LsqX56ww%3D%3D--%2BvARkoJnITzqZnv0--aF8vmra6vqt9AoZNQBc4Pw%3D%3D' \
+--data '{
+  "username": "member",
+  "password": "member123"
+}
+'
+
+curl --location --request GET 'http://localhost:3021/api/session_status' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: _test_rubyrails_session=T8nbTC57E%2B6lqUmG9XGBlcjxFffulxR6RMH9qyHKvNm8r1AZ9wbVDB8AZqeDH86Ym1dNskvuVacLfw0j3rUkgteG921SgJwK7jKGQ0mdIikBiKwVVrHIBsJiCyz7IT5CJMZIpBFfmcHEb87Lrol68cGgn0Dmxtb5Z6g01%2B1gKGNAdH%2BsQRZVPjs%2FWnXTBAZKUt88z8g5pN98PueK%2FfNZSV8ZqZs504GNh9f2Gc2I0xB0iURpcjlIxiHqV1iQa6XboYoUD3nBYlYxBTt%2BaUapo3DTuG0hJ0bzJ0LsqX56ww%3D%3D--%2BvARkoJnITzqZnv0--aF8vmra6vqt9AoZNQBc4Pw%3D%3D' \
+--data '{
+  "username": "member",
+  "password": "member123"
+}
+'
+
+curl --location --request DELETE 'http://localhost:3021/logout' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: _test_rubyrails_session=MPYZgfTJHWSTFQ1Xhciz4KlbSOhj6WrRyx8TN%2FpTZ9VZ4C4ASGhtRuO0e5kPzQLpK6%2BUZCQvuO%2BklyYJCf9F%2BwnuDG7rxTsTLoT0YCOs4VUUS2%2BuUx%2BRhu%2BqXCIU1KMFTREALCJ%2Bd3YaK7nnOYNDcCe1opmjIcTFY82CMCjn%2F4x0ZAXUU5EsH7NSPTgkexo%3D--rxxCPqgXMEKwruM4--AMqcCDZBQ8wi6XSeKzVIAw%3D%3D' \
+--data '{
+  "username": "member",
+  "password": "member123"
+}
+'
+

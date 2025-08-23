@@ -11,5 +11,13 @@ User.create!(
   username: "admin",
   email: "admin@example.com",
   password: "admin123",
+  grants: ['grant_all', 'grant_access_member'],
   superuser: true
+)
+User.create!(
+  username: "member",
+  email: "member@example.com",
+  password: "member123",
+  grants: ['grant_access_member'],
+  superuser: false
 )

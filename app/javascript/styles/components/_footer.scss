@@ -1,0 +1,20 @@
+@import "../variables";
+@import "../mixins";
+
+footer {
+  height: $footer-height;
+  line-height: $footer-height;
+  text-align: center;
+  background: $dark-bg;
+  color: $text-light;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: $z-footer;
+}
+
+@include respond-to(lg) {
+  footer {
+    position: static;
+  }
+}
