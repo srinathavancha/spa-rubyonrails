@@ -12,7 +12,7 @@ module Api
         ]
 
         rules = {
-          "showUserProfile" => ["grant_all", "grant_platform_all"],
+          "showUserProfile" => ["grant_all", "grant_platform_all", "grant_access_member"],
           "accessAdminPanel" => ["grant_all"],
           "accessProductAdmin" => ["grant_all","grant_product_all"],
           "accessPlatformSettings" => ["grant_all","grant_platform_all"],
